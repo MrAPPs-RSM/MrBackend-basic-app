@@ -1,0 +1,46 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block fos_user_content %}
+    {% if app.user is not null %}
+        <div>Entering panel...</div>
+        <script type="text/javascript">
+            location.href = "{{ path('mrapps_backend_index') }}";
+        </script>
+    {% else %}
+        <div class="container">
+            <img id="login-logo" class="img-responsive" src="{{ asset('bundles/app/img/logo.png') }}" border="0" />
+            <div class="ng-scope" id="login-panel"><div ui-view="" autoscroll="false" class="ng-zoomBackDown ng-fluid ng-scope">
+                    <div class="abs-center wd-xl ng-scope login">
+                        <div class="panel widget b0">
+                            <div class="panel-body">
+                                <form action="{{ path("fos_user_security_check") }}" method="post">
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                    <div class="form-group has-feedback">
+                                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" placeholder="Username" />
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <input type="password" id="password" name="_password" required="required" class="form-control" placeholder="Password" />
+                                        <span class="fa fa-lock form-control-feedback text-muted"></span>
+                                        <label for="remember_me" class="pull-left check">
+                                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                            Remember me?
+                                        </label>
+                                        <div class="pull-right mt-sm">
+                                            <a class="text-muted" href="{{ path('fos_user_resetting_request') }}">
+                                                <small>Forgot your password?</small>
+                                            </a>
+                                        </div>
+                                        <div class="cb"></div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" id="_submit" name="_submit" class="btn btn-sm btn-primary">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock fos_user_content %}

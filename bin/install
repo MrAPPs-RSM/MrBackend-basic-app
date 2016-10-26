@@ -1,0 +1,12 @@
+#!/bin/bash
+
+./composer.phar install
+
+bower install
+npm init
+npm install
+
+./bin/console assets:install web
+./bin/console doctrine:database:create
+./bin/console doctrine:schema:create
+./bin/console fos:user:create --super-admin root root@example.com root

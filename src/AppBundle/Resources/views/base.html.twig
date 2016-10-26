@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset("assets/vendor/bootstrap/dist/css/bootstrap.min.css") }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset("bundles/app/css/app.css") }}" rel="stylesheet">
+</head>
+<body>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+<!-- Bootstrap Core JS -->
+<script type="text/javascript" src="{{ asset("assets/vendor/bootstrap/dist/js/bootstrap.min.js") }}"></script>
+<script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.16.0'><\/script>".replace("HOST", location.hostname));
+    //]]></script>
+</body>
+</html>
