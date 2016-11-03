@@ -16,6 +16,9 @@
         <testsuite name="Project Test Suite">
             <directory>src/AppBundle/Tests</directory>
         </testsuite>
+        <testsuite name="MrappsBackend Test Suite">
+            <directory>vendor/mrapps/backendbundle/Mrapps/BackendBundle/Tests</directory>
+        </testsuite>
     </testsuites>
 
     <filter>
