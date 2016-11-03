@@ -12,3 +12,9 @@ _errors:
 
 _main:
     resource: routing.yml
+
+
+app_bundle:
+    resource: "@AppBundle/Controller/TestController.php"
+    type: annotation
+    prefix: /test
