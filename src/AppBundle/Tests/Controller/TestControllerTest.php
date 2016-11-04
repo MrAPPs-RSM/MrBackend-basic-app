@@ -12,20 +12,13 @@ class TestControllerTest extends WebTestCase
 
     public function testPublicUrl()
     {
-        $this->markTestSkipped();
         $client = static::createClient();
 
-        $client->request('GET', '/test/public_url/1');
-
-        $content = $client->getResponse()->getContent();
-
-        $expectedResponse = json_encode([
-            "url" => "http://localhost/ciao",
-        ]);
+        $client->request('GET', '/test/public_url');
 
         $this->assertEquals(
-            $expectedResponse,
-            $content
+            200,
+            $client->getResponse()->getStatusCode()
         );
     }
 }
